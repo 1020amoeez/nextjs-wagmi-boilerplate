@@ -14,6 +14,7 @@ const ConnectWallet = () => {
   const { data: balance } = useBalance({ address: account?.address, chainId: account?.chain?.id })
   const { transferUSDT, hash } = useUSDTTransfer();
 
+
   const handleTransferUsdt = async () => {
     if (!toAddress || !amount) {
       alert('Please fill in both address and amount');
