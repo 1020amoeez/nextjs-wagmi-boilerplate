@@ -29,6 +29,7 @@ const ConnectWallet = () => {
     }
   };
 
+  
   useEffect(() => {
     if (!account.isConnected) {
       resetSignMessage()
