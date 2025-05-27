@@ -1,0 +1,1 @@
+export const mock_usdt = "0xAa359e618220c247dce867164305f2eb737C646D"
