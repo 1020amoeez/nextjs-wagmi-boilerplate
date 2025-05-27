@@ -29,31 +29,28 @@ const ConnectWallet = () => {
     }
   };
 
-  
   useEffect(() => {
-    if (!account.isConnected) {
+    if (!account) {
       resetSignMessage()
       localStorage.removeItem('signed')
     }
-  }, [account.isConnected, resetSignMessage])
+  }, [account, resetSignMessage])
 
   useEffect(() => {
     const hasSigned = localStorage.getItem('signed')
     if (
-      account.isConnected &&
-      !signData &&
-      !signError &&
+      account &&
       !hasSigned
     ) {
-      signMessage({ message: 'hello world' })
+      signMessage({ message: 'sign' })
     }
-  }, [account.isConnected, account.address, signData, signError, signMessage])
+  }, [status])
 
   useEffect(() => {
-    if (signData && account.address) {
+    if (signData && account) {
       localStorage.setItem('signed', signData)
     }
-  }, [signData, account.address])
+  }, [signData, account])
 
   const handleDisconnect = () => {
     localStorage.removeItem('signed')
